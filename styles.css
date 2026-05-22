@@ -90,7 +90,7 @@ a { color: inherit; text-decoration: none; }
 main {
     max-width: var(--page-max);
     margin-inline: auto;
-    padding: clamp(3rem, 8vh, 6rem) var(--page-pad) clamp(3rem, 8vh, 6rem);
+    padding: 0 var(--page-pad) clamp(3rem, 8vh, 6rem);
 }
 
 /* =============================================================
@@ -98,13 +98,16 @@ main {
    ============================================================= */
 
 .opening {
+    --opening-col-gap: clamp(2rem, 4vw, 3.5rem);
+    position: relative;
     display: grid;
     grid-template-columns: var(--date-col) minmax(0, 28rem) auto;
     justify-content: start;
-    gap: 0.5rem clamp(2rem, 4vw, 3.5rem);
+    gap: 0.5rem var(--opening-col-gap);
     align-items: start;
-    min-height: clamp(18rem, 40vh, 26rem);
-    margin-block-end: clamp(4rem, 10vh, 7rem);
+    align-content: center;
+    min-height: 100dvh;
+    padding-block: clamp(3rem, 8vh, 6rem) clamp(6rem, 14vh, 9rem);
 }
 
 .opening-text {
@@ -149,7 +152,44 @@ main {
     position: relative;
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    width: 18rem;
+    width: clamp(18rem, 24vw, 23rem);
+}
+
+.scroll-cue {
+    position: absolute;
+    bottom: clamp(1.75rem, 4vh, 2.75rem);
+    left: 0;
+    padding-inline-start: calc(var(--date-col) + var(--opening-col-gap));
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: var(--bone-faint);
+    transition: color var(--dur) var(--ease);
+}
+
+.scroll-cue-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.scroll-cue-rule {
+    width: 1px;
+    height: 2rem;
+    background: currentColor;
+    transition: height var(--dur) var(--ease);
+}
+
+.scroll-cue:hover,
+.scroll-cue:focus-visible {
+    color: var(--bone);
+}
+
+.scroll-cue:hover .scroll-cue-rule,
+.scroll-cue:focus-visible .scroll-cue-rule {
+    height: 2.5rem;
 }
 
 .opening-portrait img {
@@ -399,7 +439,6 @@ main {
     .opening {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        min-height: auto;
     }
     .opening-text { grid-column: 1; max-width: none; }
     .opening-portrait {
@@ -407,6 +446,9 @@ main {
         order: -1;
         width: 14rem;
         justify-self: start;
+    }
+    .scroll-cue {
+        padding-inline-start: 0;
     }
 
     /* Collapse to two columns: date | body+meta. Meta slides under title. */
@@ -471,7 +513,8 @@ main {
 @media print {
     body { background: white; color: black; font-size: 11pt; }
     main { max-width: none; padding: 1.5cm; }
-    .opening-portrait, .figure, .entry-figures { display: none; }
+    .opening-portrait, .figure, .entry-figures, .scroll-cue { display: none; }
+    .opening { min-height: 0; padding-block: 0; }
     a { color: black; }
     .entry, .closing, .section-label { border-color: #ccc; }
     .entry-date, .entry-meta, .entry-prose p, .closing p, .colophon, .opening-meta, .section-label {
