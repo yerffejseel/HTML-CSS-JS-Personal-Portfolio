@@ -4,120 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeffrey Lee</title>
-    <meta name="description" content="Jeffrey Lee. Computer science at the University of Washington. Software engineer interning at Amazon, researching multimodal models with Apple, joining Meta in Summer 2026.">
-    <meta name="theme-color" content="#f5f0e6">
+    <meta name="description" content="Jeffrey Lee. Computer science at the University of Washington. Software engineer interning at Meta, previously at Amazon, and researching multimodal models with Apple.">
     <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#fafbfc">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&display=swap">
 
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <main>
-        <section class="opening" aria-label="Introduction">
-            <h1 class="sr-only">Jeffrey Lee</h1>
-
-            <div class="opening-text">
-                <p class="lede">
-                    I&rsquo;m <strong>Jeffrey Lee</strong>, a junior at the University of Washington studying computer science.
-                </p>
-                <p class="opening-meta">Seattle &middot; UW &rsquo;27</p>
+        <header class="masthead">
+            <div class="masthead-text">
+                <h1>Jeffrey Lee</h1>
+                <p class="intro">I&rsquo;m a junior at the University of Washington studying computer science, in Seattle. I graduate in 2027.</p>
+                <ul class="contact">
+                    <li><a href="mailto:jeffreylee6225@gmail.com">jeffreylee6225@gmail.com</a></li>
+                    <li><a href="https://github.com/yerffejseel" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/jeffreylee622/" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="./assets/Jeffrey_Lee_Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a></li>
+                </ul>
             </div>
 
-            <figure class="opening-portrait">
-                <img src="./assets/about-me picture.jpeg" alt="A portrait of Jeffrey Lee." loading="eager" decoding="async">
-            </figure>
+            <img class="portrait" src="./assets/about-me%20picture.jpeg" alt="Jeffrey Lee." width="360" height="450" loading="eager" decoding="async">
+        </header>
 
-            <a class="scroll-cue" href="#experience">
-                <span class="scroll-cue-label">Experience</span>
-                <span class="scroll-cue-rule" aria-hidden="true"></span>
-            </a>
-        </section>
+        <section class="section" aria-labelledby="experience">
+            <h2 id="experience">Experience</h2>
 
-        <section class="entries" id="experience" aria-label="Work">
             <article class="entry">
-                <p class="entry-date">Summer 2026</p>
-                <h2 class="entry-title">Software Engineer Intern, Meta</h2>
-                <p class="entry-meta">Menlo Park, CA &middot; incoming</p>
-                <div class="entry-prose">
-                    <p>Joining the Meta software engineering intern program for the summer.</p>
+                <div class="entry-head">
+                    <h3>Software Engineer Intern, Meta</h3>
+                    <p class="entry-date">Summer 2026</p>
+                </div>
+                <p class="entry-meta">Menlo Park, CA</p>
+                <div class="prose">
+                    <p>I built Creator Pulse, a dashboard that collects creator feedback from 4 surfaces and ranks the resulting pain points. The interface is Next.js and GraphQL; behind it, a daily Dataswarm and Spark job clusters 50,000+ posts into 50+ themes using UMAP and HDBSCAN. I then added Ask AI, an agent that plans over 7 Presto query tools I wrote and falls back to text-to-SQL when none of them apply. It holds 90%+ accuracy on adversarial evals.</p>
+                    <p>I also wrote a daily eval runner in Hack for the monetization subagent in Creator Assistant. It grades the model&rsquo;s earnings-change explanations against 100 page IDs on 5 criteria. The runner exposed several API bugs and raised accuracy from 41% to 80%+.</p>
                 </div>
             </article>
 
             <article class="entry">
-                <p class="entry-date">Summer 2025</p>
-                <h2 class="entry-title">Software Development Engineer Intern, Amazon</h2>
+                <div class="entry-head">
+                    <h3>Software Development Engineer Intern, Amazon</h3>
+                    <p class="entry-date">Summer 2025</p>
+                </div>
                 <p class="entry-meta">Scaling Planner team &middot; Sunnyvale, CA</p>
-                <div class="entry-prose">
-                    <p>Worked on automated scaling solutions that optimize AWS resource allocation for service teams, then designed an AI-powered diagnostic assistant on top to streamline service-owner workflows. The assistant runs on a Python Lambda orchestrator with a retrieval-augmented pipeline that fuses platform documentation and live operational data; a separate ingestion service vectorizes data from seven internal microservices into OpenSearch and S3 for real-time k-NN retrieval.</p>
-                    <p>By the end of the summer it was handling around fifty interactions a day, with roughly 80% contextual accuracy on the questions service owners actually asked.</p>
+                <div class="prose">
+                    <p>I worked on automated scaling for AWS resource allocation, then built a diagnostic assistant on top of it for the service owners who use the platform. The assistant runs on a Python Lambda orchestrator with a retrieval-augmented pipeline over platform documentation and live operational data. A separate ingestion service vectorizes data from 7 internal microservices into OpenSearch and S3 for real-time k-NN retrieval.</p>
+                    <p>It handled about 50 interactions a day at 80% contextual accuracy on the questions service owners actually asked.</p>
                 </div>
             </article>
 
             <article class="entry">
-                <p class="entry-date">Spring 2025</p>
-                <h2 class="entry-title">Research Collaborator, Apple</h2>
+                <div class="entry-head">
+                    <h3>Research Collaborator, Apple</h3>
+                    <p class="entry-date">Spring 2025</p>
+                </div>
                 <p class="entry-meta">With Dr.&nbsp;Chun-Liang Li, in CSE&nbsp;493</p>
-                <div class="entry-prose">
-                    <p>Researched vision-centric test-time scaling for vision&ndash;language models using Visual Sketchpad&ndash;inspired augmentations: depth maps, segmentation masks, and crops. Built an experimental pipeline on LLaVA-OneVision and MMBench to evaluate three augmentation strategies, then a hybrid system that pairs GPT-4o-mini augmentation planning with LLaVA-OneVision inference as a lighter-weight alternative to full Visual Sketchpad methods.</p>
-                    <p>The hybrid gave a small accuracy gain (+1.37% on the benchmark) at roughly 33&times; lower inference cost. I wrote up the work as a <a href="./assets/Multimodal_Test_Time_Scaling_via_Visual_Augmentation.pdf" target="_blank" rel="noopener">short paper</a>.</p>
+                <div class="prose">
+                    <p>I researched vision-centric test-time scaling for vision&ndash;language models, using augmentations inspired by Visual Sketchpad: depth maps, segmentation masks, and crops. I built a pipeline on LLaVA-OneVision and MMBench to evaluate 3 augmentation strategies, then a hybrid in which GPT-4o-mini plans the augmentation and LLaVA-OneVision runs inference. The hybrid is a lighter-weight alternative to full Visual Sketchpad.</p>
+                    <p>It gained 1.37% on MMBench at 33&times; lower inference cost. The results are in a <a href="./assets/Multimodal_Test_Time_Scaling_via_Visual_Augmentation.pdf" target="_blank" rel="noopener">short paper</a>.</p>
                 </div>
             </article>
 
             <article class="entry">
-                <p class="entry-date">2024&ndash;2025</p>
-                <h2 class="entry-title">Co-Lecturer and TA, Interactive Intelligence</h2>
+                <div class="entry-head">
+                    <h3>Co-Lecturer and TA, Interactive Intelligence</h3>
+                    <p class="entry-date">2024&ndash;2025</p>
+                </div>
                 <p class="entry-meta">University of Washington &middot; Seattle</p>
-                <div class="entry-prose">
-                    <p>Co-designed thirteen AI coding projects covering neural networks, reinforcement learning, and NLP for around a hundred students. Gave five lectures on transformers, RLHF, and multimodal learning, and built the slide decks for each.</p>
+                <div class="prose">
+                    <p>I co-designed the course&rsquo;s 13 AI coding projects, which cover neural networks, reinforcement learning, and NLP, for a class of about 100 students. I prepared and gave 5 lectures, on transformers, RLHF, and multimodal learning.</p>
                 </div>
             </article>
         </section>
 
-        <h2 class="section-label">Projects</h2>
+        <section class="section" aria-labelledby="projects">
+            <h2 id="projects">Projects</h2>
 
-        <section class="entries" aria-label="Projects">
             <article class="entry">
-                <p class="entry-date">Feb 2026</p>
-                <h2 class="entry-title"><a href="https://github.com/josephvtranx/synthetic-society" target="_blank" rel="noopener">Synthetic Society</a></h2>
+                <div class="entry-head">
+                    <h3><a href="https://github.com/josephvtranx/synthetic-society" target="_blank" rel="noopener">Synthetic Society</a></h3>
+                    <p class="entry-date">Feb 2026</p>
+                </div>
                 <p class="entry-meta">Hacktech 2026 &middot; Listen Labs finalist</p>
-                <div class="entry-prose">
-                    <p>An LLM-driven simulation of how opinions propagate through a social graph. Each agent is given a personality and an initial belief; you introduce a topic and watch the network shift, with the simulation distinguishing genuine belief change from agreeableness. TypeScript on the front, Python on the back, built over a hackathon weekend. Finalist for the Listen Labs &ldquo;simulate humans or societies&rdquo; track.</p>
+                <div class="prose">
+                    <p>An LLM-driven simulation of how opinions spread through a social graph. Each agent begins with a personality and an initial belief; you introduce a topic and the network shifts in response. The simulation distinguishes genuine belief change from agreeableness. TypeScript on the front end, Python on the back, built over a hackathon weekend. It was a finalist in the Listen Labs &ldquo;simulate humans or societies&rdquo; track.</p>
                 </div>
             </article>
 
             <article class="entry">
-                <p class="entry-date">Mar 2025</p>
-                <h2 class="entry-title"><a href="https://github.com/yerffejseel/Solace-AI" target="_blank" rel="noopener">Solace AI</a></h2>
+                <div class="entry-head">
+                    <h3><a href="https://github.com/yerffejseel/Solace-AI" target="_blank" rel="noopener">Solace AI</a></h3>
+                    <p class="entry-date">Mar 2025</p>
+                </div>
                 <p class="entry-meta">Shipped on the Apple App Store</p>
-                <div class="entry-prose">
-                    <p>An AI-powered journaling app. React Native and TypeScript on the client, an Express and PostgreSQL backend on AWS EC2 and RDS, with GPT-4o-mini wired in for real-time entry analysis, mood tracking, and personalized insights. Custom prompt engineering and multi-dialogue memory keep replies continuous across sessions. Reached around a hundred registered users and four hundred entries processed.</p>
+                <div class="prose">
+                    <p>An AI journaling app. React Native and TypeScript on the client, with an Express and PostgreSQL backend on AWS EC2 and RDS. GPT-4o-mini handles entry analysis, mood tracking, and personalized insights. Most of the prompt work went into memory, so that replies stay coherent for someone writing daily over several weeks. It reached about 100 registered users and processed 400 entries.</p>
                 </div>
             </article>
 
             <article class="entry">
-                <p class="entry-date">Apr 2024</p>
-                <h2 class="entry-title"><a href="https://github.com/yerffejseel/Convolutional-Neural-Network/tree/main" target="_blank" rel="noopener">Advanced Image Classifier</a></h2>
+                <div class="entry-head">
+                    <h3><a href="https://github.com/yerffejseel/Convolutional-Neural-Network/tree/main" target="_blank" rel="noopener">Advanced Image Classifier</a></h3>
+                    <p class="entry-date">Apr 2024</p>
+                </div>
                 <p class="entry-meta">Computer vision, from scratch in PyTorch</p>
-                <div class="entry-prose">
-                    <p>A custom ResNet-style CNN with residual connections, data augmentation, and batch normalization, trained from scratch on CIFAR-10 (60,000 images across 10 categories). Reached 90% test accuracy in ten epochs through architecture choices and hyperparameter tuning.</p>
+                <div class="prose">
+                    <p>A ResNet-style CNN with residual connections, data augmentation, and batch normalization, trained from scratch on CIFAR-10 (60,000 images across 10 categories). I reached 90% test accuracy in 10 epochs after tuning the architecture and the hyperparameters.</p>
                 </div>
             </article>
         </section>
 
         <section class="closing" aria-label="Contact">
-            <p>In my free time, I enjoy going to the gym, long walks, and basketball. I am also a part of the Chinese Student Association at UW, where I serve as president.</p>
-
-            <p>Open to full-time software roles after I graduate in 2027, and to research collaborations any time. Email me at <a href="mailto:jeffreylee6225@gmail.com">jeffreylee6225@gmail.com</a>. I&rsquo;m also on <a href="https://github.com/yerffejseel" target="_blank" rel="noopener">GitHub</a> and <a href="https://www.linkedin.com/in/jeffreylee622/" target="_blank" rel="noopener">LinkedIn</a>, and here&rsquo;s my <a href="./assets/Jeffrey_Lee_Resume.pdf" target="_blank" rel="noopener">r&eacute;sum&eacute;</a>.</p>
+            <p>Outside of class I go to the gym, take long walks, and play basketball. I&rsquo;m also president of the Chinese Student Association at UW.</p>
+            <p>I&rsquo;m open to full-time software roles after I graduate and research opportunities. Contact me at <a href="mailto:jeffreylee6225@gmail.com">jeffreylee6225@gmail.com</a>.</p>
         </section>
 
         <footer class="colophon">
-            <p>Jeffrey Lee, 2026. Seattle.</p>
+            <p>Jeffrey Lee, 2026.</p>
         </footer>
     </main>
-
-    <script src="script.js" defer></script>
 </body>
 </html>
